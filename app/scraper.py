@@ -16,7 +16,8 @@ def run_scraper(id):
 		desired_capabilities['chromeOptions'] = {
     		"binary": chrome_bin
 		}
-		browser = webdriver.Chrome(desired_capabilities)
+		prin
+		browser = webdriver.Chrome(desired_capabilities=desired_capabilities)
 	else:
 		browser = webdriver.Chrome()
 
