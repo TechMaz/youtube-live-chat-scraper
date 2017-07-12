@@ -1,1 +1,1 @@
-web: python routes.py
+web: python app/routes.py
