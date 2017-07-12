@@ -3,8 +3,8 @@ import json
 from selenium import webdriver
 
 def run_scraper(id):
-	#display = Display(visible=0, size=(1024, 768))
-	#display.start()
+	display = Display(visible=0, size=(1024, 768))
+	display.start()
 
 	browser = webdriver.Chrome()
 
@@ -18,5 +18,5 @@ def run_scraper(id):
 		chats.append(("{ message: '" + message.encode('utf-8').strip() +"' },"))
 
 	browser.quit()
-	#display.stop()
+	display.stop()
 	return chats
