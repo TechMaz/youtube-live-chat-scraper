@@ -26,10 +26,10 @@ def run_scraper(id):
 		}
 		browser = webdriver.Chrome(desired_capabilities=desired_capabilities)
 		'''
-		browser = webdriver.Chrome(executable_path=chromedriver_path,chrome_options=chrome_options)
+		browser = webdriver.Chrome(executable_path=chromedriver_path,desired_capabilities=chrome_options.to_capabilities())
 	else:
 		#chrome_options.add_argument('window-size=1200x600')
-		browser = webdriver.Chrome(chrome_options=chrome_options)
+		browser = webdriver.Chrome(desired_capabilities=chrome_options.to_capabilities())
 
 	url = "https://www.youtube.com/live_chat?v=" + str(id)
 	browser.get(url)
