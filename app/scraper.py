@@ -12,7 +12,7 @@ def run_scraper(id):
 	chrome_options = webdriver.ChromeOptions()
 	chrome_bin = os.getenv('GOOGLE_CHROME_SHIM', None)
 	if(chrome_bin):
-		desired_capabilities = DesiredCapabilities.CHROME
+		desired_capabilities = DesiredCapabilities.chrome()
 		desired_capabilities['chromeOptions'] = {
     		"binary": chrome_bin
 		}
