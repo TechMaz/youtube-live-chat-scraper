@@ -16,6 +16,7 @@ def run_scraper(id):
 	chrome_options.add_argument('--disable-extensions')
 	#chrome_options.add_argument('window-size=1200x600')
 	chrome_bin = os.getenv('GOOGLE_CHROME_SHIM', None)
+	chromedriver_path = '.chromedriver/bin/chromedriver'
 	if(chrome_bin):
 		chrome_options.binary_location = '.apt/usr/bin/google-chrome-stable'
 		'''
@@ -25,7 +26,7 @@ def run_scraper(id):
 		}
 		browser = webdriver.Chrome(desired_capabilities=desired_capabilities)
 		'''
-		browser = webdriver.Chrome(chrome_options=chrome_options)
+		browser = webdriver.Chrome(executable_path=chromedriver_path,chrome_options=chrome_options)
 	else:
 		#chrome_options.add_argument('window-size=1200x600')
 		browser = webdriver.Chrome(chrome_options=chrome_options)
