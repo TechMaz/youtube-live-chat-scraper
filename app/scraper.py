@@ -14,7 +14,7 @@ def run_scraper(id):
 	if(chrome_bin):
 		chrome_options.binary_location = '.apt/usr/bin/google-chrome-stable'
 		chrome_options.add_argument('headless')
-		chrome_options.add_argument('window-size=1200x600')
+		#chrome_options.add_argument('window-size=1200x600')
 		'''
 		desired_capabilities = DesiredCapabilities.CHROME
 		desired_capabilities['chromeOptions'] = {
@@ -25,7 +25,7 @@ def run_scraper(id):
 		browser = webdriver.Chrome(chrome_options=chrome_options)
 	else:
 		chrome_options.add_argument('headless')
-		chrome_options.add_argument('window-size=1200x600')
+		#chrome_options.add_argument('window-size=1200x600')
 		browser = webdriver.Chrome(chrome_options=chrome_options)
 
 	url = "https://www.youtube.com/live_chat?v=" + str(id)
