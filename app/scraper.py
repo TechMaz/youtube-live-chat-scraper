@@ -13,6 +13,8 @@ def run_scraper(id):
 	chrome_bin = os.getenv('GOOGLE_CHROME_SHIM', None)
 	if(chrome_bin):
 		chrome_options.binary_location = '.apt/usr/bin/google-chrome-stable'
+		chrome_options.add_argument('--disable-gpu')
+		chrome_options.add_argument('--no-sandbox')
 		chrome_options.add_argument('headless')
 		#chrome_options.add_argument('window-size=1200x600')
 		'''
