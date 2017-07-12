@@ -1,12 +1,22 @@
 import json
-#from pyvirtualdisplay import Display
+import os
+from pyvirtualdisplay import Display
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 def run_scraper(id):
 	display = Display(visible=0, size=(1024, 768))
 	display.start()
 
-	browser = webdriver.Chrome()
+	chrome_options = webdriver.ChromeOptions()
+	chrome_bin = os.getenv('GOOGLE_CHROME_SHIM', None)
+	if(chrome_bin):
+		desired_capabilities['chromeOptions'] = {
+    		"binary": chrome_bin
+		}
+		browser = webdriver.Chrome(desired_capabilities=desired_capabilities)
+	else:
+		browser = webdriver.Chrome()
 
 	url = "https://www.youtube.com/live_chat?v=" + str(id)
 	browser.get(url)
