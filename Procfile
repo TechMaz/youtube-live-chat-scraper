@@ -1,1 +1,1 @@
-web: xvfb-run -a python app/routes.py
+web: python app/routes.py
