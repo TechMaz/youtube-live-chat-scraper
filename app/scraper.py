@@ -30,7 +30,7 @@ def run_scraper(id):
 
 	url = "https://www.youtube.com/live_chat?v=" + str(id)
 	browser.get(url)
-	driver.implicitly_wait(1)
+	browser.implicitly_wait(1)
 	#innerHTML = browser.execute_script("return document.body.innerHTML")
 	chats = []
 	for chat in browser.find_elements_by_css_selector('yt-live-chat-text-message-renderer'):
