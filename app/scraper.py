@@ -6,15 +6,15 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 def run_scraper(id):
-	#display = Display(visible=0, size=(1024, 768))
-	#display.start()
+	display = Display(visible=0, size=(1024, 768))
+	display.start()
 
 	chrome_options = webdriver.ChromeOptions()
 	chrome_options.add_argument('--disable-gpu')
 	chrome_options.add_argument('--no-sandbox')
 	chrome_options.add_argument('--headless')
 	chrome_options.add_argument('--disable-extensions')
-	chrome_options.add_argument('window-size=1200x600')
+	chrome_options.add_argument('window-size=1024x768')
 	chrome_bin = os.getenv('GOOGLE_CHROME_SHIM', None)
 
 	if(chrome_bin):
@@ -38,7 +38,7 @@ def run_scraper(id):
 		chats.append(json.loads(obj))
 
 	browser.quit()
-	#display.stop()
+	display.stop()
 	return chats
 
 
