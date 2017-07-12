@@ -14,7 +14,7 @@ def run_scraper(id):
 	if(chrome_bin):
 		desired_capabilities = DesiredCapabilities.CHROME
 		desired_capabilities['chromeOptions'] = {
-    		"binary": chrome_bin
+    		"binary": '.apt/usr/bin/google-chrome-stable'
 		}
 		browser = webdriver.Chrome(desired_capabilities=desired_capabilities)
 	else:
