@@ -10,13 +10,14 @@ def run_scraper(id):
 	#display.start()
 
 	chrome_options = webdriver.ChromeOptions()
+	chrome_options.add_argument('--disable-gpu')
+	chrome_options.add_argument('--no-sandbox')
+	chrome_options.add_argument('--headless')
+	chrome_options.add_argument('--disable-extensions')
+	#chrome_options.add_argument('window-size=1200x600')
 	chrome_bin = os.getenv('GOOGLE_CHROME_SHIM', None)
 	if(chrome_bin):
 		chrome_options.binary_location = '.apt/usr/bin/google-chrome-stable'
-		chrome_options.add_argument('--disable-gpu')
-		chrome_options.add_argument('--no-sandbox')
-		chrome_options.add_argument('--headless')
-		#chrome_options.add_argument('window-size=1200x600')
 		'''
 		desired_capabilities = DesiredCapabilities.CHROME
 		desired_capabilities['chromeOptions'] = {
@@ -26,9 +27,6 @@ def run_scraper(id):
 		'''
 		browser = webdriver.Chrome(chrome_options=chrome_options)
 	else:
-		chrome_options.add_argument('--disable-gpu')
-		chrome_options.add_argument('--no-sandbox')
-		chrome_options.add_argument('--headless')
 		#chrome_options.add_argument('window-size=1200x600')
 		browser = webdriver.Chrome(chrome_options=chrome_options)
 
