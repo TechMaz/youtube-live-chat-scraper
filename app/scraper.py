@@ -3,6 +3,7 @@ import os
 from pyvirtualdisplay import Display
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 def run_scraper(id):
 	display = Display(visible=0, size=(1024, 768))
@@ -11,10 +12,11 @@ def run_scraper(id):
 	chrome_options = webdriver.ChromeOptions()
 	chrome_bin = os.getenv('GOOGLE_CHROME_SHIM', None)
 	if(chrome_bin):
+		desired_capabilities = DesiredCapabilities.CHROME
 		desired_capabilities['chromeOptions'] = {
     		"binary": chrome_bin
 		}
-		browser = webdriver.Chrome(desired_capabilities=desired_capabilities)
+		browser = webdriver.Chrome(desired_capabilities)
 	else:
 		browser = webdriver.Chrome()
 
