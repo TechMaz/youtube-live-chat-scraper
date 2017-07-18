@@ -20,6 +20,7 @@ def run_scraper(id):
 	chrome_options.add_argument('--disable-extensions')
 	#chrome_options.add_argument('window-size=1024x768')
 	chrome_bin = os.getenv('GOOGLE_CHROME_SHIM', None)
+	is_local = os.getenv('IS_LOCAL', None)
 	chromedriver_path = '/usr/local/bin/chromedriver'
 	service_log_path = "{}/chromedriver.log".format('/var/www/logs/')
 	service_args = ['--verbose']
@@ -28,9 +29,12 @@ def run_scraper(id):
 		chromedriver_path = '.chromedriver/bin/chromedriver'
 		chrome_options.binary_location = '.apt/usr/bin/google-chrome-stable'
 		browser = webdriver.Chrome(executable_path=chromedriver_path,chrome_options=chrome_options,service_args=service_args)
+	elif(is_local):
+		browser = webdriver.Chrome(chrome_options=chrome_options)
 	else:
 		chrome_options.binary_location = '/usr/bin/google-chrome-stable'
 		browser = webdriver.Chrome(executable_path=chromedriver_path,chrome_options=chrome_options,service_args=service_args,service_log_path=service_log_path)
+
 
 	url = "https://www.youtube.com/live_chat?v=" + str(id)
 	browser.get(url)
