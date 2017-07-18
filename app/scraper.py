@@ -46,11 +46,7 @@ def run_scraper(id):
 		chats.append(json.loads(obj))
 
 	for entry in browser.get_log('browser'):
-<<<<<<< HEAD
 		print(entry)
-=======
-		print entry
->>>>>>> 4e7617c3451fd2e023359f12a209459b92acd183
 
 	browser.quit()
 	display.stop()
