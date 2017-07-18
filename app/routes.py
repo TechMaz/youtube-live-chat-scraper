@@ -2,9 +2,10 @@ import os
 import json
 from flask import Flask, render_template, Response
 import scraper
- 
-app = Flask(__name__)      
- 
+
+app = Flask(__name__)
+#os.environ['DBUS_SESSION_BUS_ADDRESS'] =  '/dev/null'
+
 @app.route('/')
 def home():
   return render_template('home.html')
@@ -16,7 +17,8 @@ def scrape(id=None):
 	else:
 		chats = scraper.run_scraper(id)
 		return Response(json.dumps(chats), mimetype='application/json')
- 
+
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=True)
+   # port = int(os.environ.get('PORT', 5000))
+   # app.run(host='0.0.0.0', port=port, debug=True)
+   app.run(host='0.0.0.0')
