@@ -21,9 +21,8 @@ def run_scraper(id):
 	#chrome_options.add_argument('window-size=1024x768')
 	chrome_bin = os.getenv('GOOGLE_CHROME_SHIM', None)
 	chromedriver_path = '/usr/local/bin/chromedriver'
-
-    service_log_path = "{}/chromedriver.log".format('/var/www/logs/')
-    service_args = ['--verbose']
+	service_log_path = "{}/chromedriver.log".format('/var/www/logs/')
+	service_args = ['--verbose']
 
 	if(chrome_bin):
 		chromedriver_path = '.chromedriver/bin/chromedriver'
