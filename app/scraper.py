@@ -26,8 +26,9 @@ def run_scraper(id):
 
 	if(chrome_bin):
 		chromedriver_path = '.chromedriver/bin/chromedriver'
+		service_log_path = 'stdout'
 		chrome_options.binary_location = '.apt/usr/bin/google-chrome-stable'
-		browser = webdriver.Chrome(executable_path=chromedriver_path,chrome_options=chrome_options)
+		browser = webdriver.Chrome(executable_path=chromedriver_path,chrome_options=chrome_options,service_args=service_args,service_log_path=service_log_path)
 	else:
 		chrome_options.binary_location = '/usr/bin/google-chrome-stable'
 		browser = webdriver.Chrome(executable_path=chromedriver_path,chrome_options=chrome_options,service_args=service_args,service_log_path=service_log_path)
