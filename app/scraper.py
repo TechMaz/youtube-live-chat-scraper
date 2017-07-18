@@ -26,9 +26,8 @@ def run_scraper(id):
 
 	if(chrome_bin):
 		chromedriver_path = '.chromedriver/bin/chromedriver'
-		service_log_path = 'stdout'
 		chrome_options.binary_location = '.apt/usr/bin/google-chrome-stable'
-		browser = webdriver.Chrome(executable_path=chromedriver_path,chrome_options=chrome_options,service_args=service_args,service_log_path=service_log_path)
+		browser = webdriver.Chrome(executable_path=chromedriver_path,chrome_options=chrome_options,service_args=service_args)
 	else:
 		chrome_options.binary_location = '/usr/bin/google-chrome-stable'
 		browser = webdriver.Chrome(executable_path=chromedriver_path,chrome_options=chrome_options,service_args=service_args,service_log_path=service_log_path)
@@ -45,6 +44,9 @@ def run_scraper(id):
 		message_encoded = message.encode('utf-8').strip()
 		obj = json.dumps({'author_name': author_name_encoded, 'message': message_encoded })
 		chats.append(json.loads(obj))
+
+	for entry in browser.get_log('browser'):
+    	print entry
 
 	browser.quit()
 	display.stop()
