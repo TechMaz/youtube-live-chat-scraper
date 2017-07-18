@@ -45,8 +45,8 @@ def run_scraper(id):
 		obj = json.dumps({'author_name': author_name_encoded, 'message': message_encoded })
 		chats.append(json.loads(obj))
 
-	for entry in browser.get_log('browser'):
-		print(entry)
+	#for entry in browser.get_log('browser'):
+	#	print(entry)
 
 	browser.quit()
 	display.stop()
