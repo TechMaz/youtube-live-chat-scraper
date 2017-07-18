@@ -44,9 +44,9 @@ def run_scraper(id):
 	for chat in browser.find_elements_by_css_selector('yt-live-chat-text-message-renderer'):
 		author_name = chat.find_element_by_css_selector("#author-name").get_attribute('innerHTML')
 		message = chat.find_element_by_css_selector("#message").get_attribute('innerHTML')
-		author_name_encoded = author_name.encode('utf-8').strip()
-		message_encoded = message.encode('utf-8').strip()
-		obj = json.dumps({'author_name': author_name_encoded, 'message': message_encoded })
+		#author_name_encoded = author_name.encode('utf-8').strip()
+		#message_encoded = message.encode('utf-8').strip()
+		obj = json.dumps({'author_name': author_name, 'message': message})
 		chats.append(json.loads(obj))
 
 	#for entry in browser.get_log('browser'):
