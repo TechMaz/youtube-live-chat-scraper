@@ -29,9 +29,8 @@ def run_scraper(id):
 		chrome_options.binary_location = '.apt/usr/bin/google-chrome-stable'
 		browser = webdriver.Chrome(executable_path=chromedriver_path,chrome_options=chrome_options)
 	else:
-                chrome_options.binary_location = '/usr/bin/google-chrome-stable'
-		browser = webdriver.Chrome(executable_path=chromedriver_path,chrome_options=chrome_options,service_args=service_args,
-            service_log_path=service_log_path)
+		chrome_options.binary_location = '/usr/bin/google-chrome-stable'
+		browser = webdriver.Chrome(executable_path=chromedriver_path,chrome_options=chrome_options,service_args=service_args,service_log_path=service_log_path)
 
 	url = "https://www.youtube.com/live_chat?v=" + str(id)
 	browser.get(url)
