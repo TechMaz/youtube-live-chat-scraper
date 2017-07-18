@@ -3,18 +3,18 @@ import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-from xvfbwrapper import Xvfb
-from pyvirtualdisplay import Display
+#from xvfbwrapper import Xvfb
+#from pyvirtualdisplay import Display
 
 def run_scraper(id):
-	display = Display(visible=0, size=(1024, 768))
-	display.start()
+	#display = Display(visible=0, size=(1024, 768))
+	#display.start()
 	#vdisplay = Xvfb()
 	#vdisplay.start()
 
 	chrome_options = webdriver.ChromeOptions()
 	#chrome_options.add_argument('--allow-running-insecure-content')
-	#chrome_options.add_argument('--disable-gpu')
+	chrome_options.add_argument('--disable-gpu')
 	chrome_options.add_argument('--no-sandbox')
 	chrome_options.add_argument('--headless')
 	chrome_options.add_argument('--disable-extensions')
@@ -49,7 +49,7 @@ def run_scraper(id):
 	#	print(entry)
 
 	browser.quit()
-	display.stop()
+	#display.stop()
 	#vdisplay.stop()
 	return chats
 
